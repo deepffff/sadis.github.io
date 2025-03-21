@@ -12,133 +12,95 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-
     function gtag() {
       dataLayer.push(arguments);
     }
-
     gtag('js', new Date());
-
     gtag('config', 'G-PYVRSFMDRL');
   </script>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
-
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
 </head>
+
 <body>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Recent advances in Text-to-Image (T2I) diffusion models have transformed image generation, enabling significant progress in stylized generation using only a few style reference images.
-            However, current diffusion-based methods struggle with fine-grained style customization due to challenges in controlling multiple style attributes, such as color and texture. 
-          </p>
-          <p>
-            This paper introduces the first tuning-free approach to achieve free-lunch color-texture disentanglement in stylized T2I generation, 
-            addressing the need for independently controlled style elements for the Disentangled Stylized Image Generation (DisIG) problem. 
-            Our approach leverages the Image-Prompt Additivity property in the CLIP image embedding space to develop techniques for separating and extracting 
-            Color-Texture Embeddings (CTE) from individual color and texture reference images. 
-            To ensure that the color palette of the generated image aligns closely with the color reference, we apply a whitening and coloring transformation to enhance color consistency. 
-            Additionally, to prevent texture loss due to the signal-leak bias inherent in diffusion training, we introduce a noise term that preserves textural fidelity 
-            during the Regularized Whitening and Coloring Transformation (RegWCT).
+  <!-- Page Title -->
+  <section class="section has-text-centered">
+    <h1 class="title is-1">Free-Lunch Color-Texture Disentanglement</h1>
+    <p class="subtitle is-4">For Stylized Image Generation</p>
+  </section>
 
-          </p>
-          <p>
-            Through these methods, our Style Attributes Disentanglement approach (SADis) delivers a more precise and customizable solution for stylized image generation. 
-            Experiments on images from the WikiArt and StyleDrop datasets demonstrate that, both qualitatively and quantitatively, 
-            SADis surpasses state-of-the-art stylization methods in the DisIG task.
-          </p>
+  <!-- Abstract Section -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Recent advances in Text-to-Image (T2I) diffusion models have transformed image generation, enabling significant progress in stylized generation using only a few style reference images.
+              However, current diffusion-based methods struggle with fine-grained style customization due to challenges in controlling multiple style attributes, such as color and texture. 
+            </p>
+            <p>
+              This paper introduces the first tuning-free approach to achieve free-lunch color-texture disentanglement in stylized T2I generation, 
+              addressing the need for independently controlled style elements for the Disentangled Stylized Image Generation (DisIG) problem. 
+              Our approach leverages the Image-Prompt Additivity property in the CLIP image embedding space to develop techniques for separating and extracting 
+              Color-Texture Embeddings (CTE) from individual color and texture reference images. 
+            </p>
+            <p>
+              Through these methods, our Style Attributes Disentanglement approach (SADis) delivers a more precise and customizable solution for stylized image generation. 
+              Experiments on images from the WikiArt and StyleDrop datasets demonstrate that, both qualitatively and quantitatively, 
+              SADis surpasses state-of-the-art stylization methods in the DisIG task.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
+  </section>
 
-  </div>
-</section>
-
-
-
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
-
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
+  <!-- Results Section -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Results</h2>
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <figure class="image is-16by9">
+            <img src="./static/images/result1.jpg" alt="Result Image 1">
+          </figure>
+          <p class="has-text-centered"><strong>Figure 1:</strong> Stylized Image Example 1</p>
         </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
+        <div class="column is-half">
+          <figure class="image is-16by9">
+            <img src="./static/images/result2.jpg" alt="Result Image 2">
+          </figure>
+          <p class="has-text-centered"><strong>Figure 2:</strong> Stylized Image Example 2</p>
         </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-
       </div>
     </div>
-    <!--/ Animation. -->
+  </section>
 
-  </div>
-</section>
+  <!-- BibTeX Section -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title is-3 has-text-centered">BibTeX</h2>
+      <pre><code>@misc{qin2025freelunchcolortexturedisentanglementstylized,
+  title={Free-Lunch Color-Texture Disentanglement for Stylized Image Generation}, 
+  author={Jiang Qin and Senmao Li and Alexandra Gomez-Villa and Shiqi Yang and Yaxing Wang and Kai Wang and Joost van de Weijer},
+  year={2025},
+  eprint={2503.14275},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2503.14275}, 
+}
 
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
-  </div>
-</section>
-
-
+</code></pre>
+    </div>
+  </section>
 
 </body>
 </html>
