@@ -1,6 +1,6 @@
 # SADis
 
-This is the repository that contains source code for the [SADis paper](https://arxiv.org/pdf/2503.14275).
+This is the repository that contains source code for the [project page](https://deepffff.github.io/sadis.github.io/). Find our paper in [SADis paper](https://arxiv.org/pdf/2503.14275).
 
 If you find Nerfies useful for your work please cite:
 ```
